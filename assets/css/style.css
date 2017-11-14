@@ -1,0 +1,54 @@
+body {
+	background-image: url("../images/background_img.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+img {
+	width: 155px;
+	height: 155px;
+	margin-left: 14.3%;
+	border-radius: 8px;
+	border: 1px solid black;
+}
+
+h1 {
+	color: black;
+	font-size: 60px;
+	margin-left: 780px;
+	text-shadow: 1px 3px 4px rgba(0,0,0,0.4),
+				 1px 6px 14px rgba(0,0,0,0.1),
+				 1px 12px 24px rgba(0,0,0,0.1);
+}
+
+h3 {
+	font-family: 'Audiowide', cursive;
+	color: black;
+	text-shadow: 1px 3px 4px rgba(0,0,0,0.4),
+				 1px 6px 14px rgba(0,0,0,0.1),
+				 1px 12px 24px rgba(0,0,0,0.1);
+}
+
+footer {
+	color: black;
+	margin-top: 5px;
+	font-size: 20px;
+	font-family: 'Audiowide', cursive;
+}
+
+div.col-md-12.col-md-6 {
+	padding-right: 0;
+}
+
+.card-body{
+	background-color: #e3eaed;
+	padding: 3px;
+	box-shadow: 1px 3px 4px rgba(0,0,0,0.4),
+				1px 6px 14px rgba(0,0,0,0.1),
+				1px 12px 24px rgba(0,0,0,0.1);
+}
+
+#title {
+	margin-left: 0px;
+	width: 700px;
+}
