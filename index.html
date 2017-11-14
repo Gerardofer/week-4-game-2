@@ -8,72 +8,112 @@
 
 </head>
 <body>
-	<h1></h1>
+	<h1>STAR WARS RPG!</h1>
 	<div class="container">
+		<h2>Your character</h2>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-3 lukeImg">
 				<div class="card text-black bg-light">
 					<h3 class="header text-center">Luke Skywalker</h3>
 					  <div class="card-body">
 					  	<div class="container">
 					  		<div class="row">
 					  			<div class="col-md-12 col-sm-6">
-				      				<img src="assets/images/luke_Skywalker.jpg" alt="Luke-Skywalker lego">
+				      				<img id="luke" src="assets/images/luke_Skywalker.jpg" alt="Luke-Skywalker lego">
 				      			</div>
 				      		</div>
 				      	</div>
-			      	<footer class="text-center">100</footer>
+			      	<footer id="luke-hp" class="text-center"></footer>
 				  </div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 obiImg">
 				<div class="card text-black bg-light">
 					<h3 class="header text-center">Obi Wan Kenobi</h3>
 					  <div class="card-body">
 					  	<div class="container">
 					  		<div class="row">
 					  			<div class="col-md-12 col-sm-6">
-					  				<img src="assets/images/obi_wan.jpg" alt="Obi-Wan lego">
+					  				<img id="obi" src="assets/images/obi_wan.jpg" alt="Obi-Wan lego">
 					  			</div>
 					  		</div>
 					  	</div>
-			      	<footer class="text-center">125</footer>
+			      	<footer id="obi-hp" class="text-center"></footer>
 				  </div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 vaderImg">
 				<div class="card text-black bg-light">
 					<h3 class="header text-center">Darth Vader</h3>
 					  <div class="card-body">
 					  	<div class="container">
 					  		<div class="row">
 					  			<div class="col-md-12 col-sm-6">
-					  				<img src="assets/images/Darth_Vader.jpg" alt="Darth-Vader lego">
+					  				<img id="vader" src="assets/images/Darth_Vader.jpg" alt="Darth-Vader lego">
 					  			</div>
 					  		</div>
 					  	</div>
-			      	<footer class="text-center">160</footer>
+			      	<footer id="vader-hp" class="text-center"></footer>
 				  </div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 sidiousImg">
 				<div class="card text-black bg-light">
 					<h3 class="header text-center">Darth Sidious</h3>
 					  <div class="card-body">
 					  	<div class="container">
 					  		<div class="row">
 					  			<div class="col-md-12 col-sm-6">
-					  				<img src="assets/images/Darth_Sidious.jpg" alt="Darth-Sidious lego">
+					  				<img id="sidious" src="assets/images/Darth_Sidious.jpg" alt="Darth-Sidious lego">
 					  			</div>
 					  		</div>
 					  	</div>
-			      	<footer class="text-center">185</footer>
+			      	<footer id="sidious-hp" class="text-center"></footer>
 				  </div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+<!-- Defendents section -->
+	<div class="container middle">
+		<h2>Enemies available to attack</h2>
+		<div class="row enemies">
+			<!-- <div></div>
+			<div></div>
+			<div></div> -->
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Fight Section</h2>
+				<button type="button" class="btn btn-outline-warning">Attack!</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<h2>Defender</h2>
+		<div class="row">
+			<div class="col-md-3 defender">
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+  <script src="assets/javascript/game.js"></script>
 
 </body>
 </html>
