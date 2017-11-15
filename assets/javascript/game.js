@@ -12,6 +12,7 @@
 
 $(document).ready(function(){
 
+	var challenegers = ["luke", "obi", "vader", "sidious"];
 	var lukeHp = 100;
 	var obiHp = 125;
 	var vaderHp = 160;
@@ -26,42 +27,134 @@ $(document).ready(function(){
 	$('#vader-hp').text(vaderHp);
 	$('#sidious-hp').text(sidiousHp);
 
+	luke();
+	obi();
 
-	$('#luke').on('click', function(){
-		lukeImg = true
-		if (lukeImg === true){
-			$('.obiImg').appendTo('.enemies');
-			$('.vaderImg').appendTo('.enemies');
-			$('.sidiousImg').appendTo('.enemies');
-		};
-	})
+//=======================Luke as the challenger ===================================
+	function luke(){
+		// if (luke === true){
+			$('#luke').on('click', function(){
+			 
+				$('.obiImg').appendTo('.enemies');
+				$('.obi').css({'background-color': "red"});
+				$('.obiImg').addClass($('#obi').on('click', function(){
+					$('.obiImg').insertAfter('.defender');
+					$('.obi').css({'background-color': "#e3eaed"});
+				}));
+				$('.vaderImg').appendTo('.enemies');
+				$('.vader').css({'background-color': "red"});
+				$('.vaderImg').addClass($('#vader').on('click', function(){
+					$('.vaderImg').insertAfter('.defender');
+					$('.vader').css({'background-color': "#e3eaed"});
+				}));
+				$('.sidiousImg').appendTo('.enemies');
+				$('.sidious').css({'background-color': "red"});
+				$('.sidiousImg').addClass($('#sidious').on('click', function(){
+					$('.sidiousImg').insertAfter('.defender');
+					$('.sidious').css({'background-color': "#e3eaed"});
+				}));
+			});
+		// };
+	};
 
-	$('#obi').on('click', function(){
-		obiImg = true
-		if (obiImg === true){
+
+//========================== Obi Wan as the challeneger =================================
+	function obi(){
+		$('#obi').on('click', function(){
+			 
 			$('.lukeImg').appendTo('.enemies');
+			$('.luke').css({'background-color': "red"});
+			$('.lukeImg').addClass($('#luke').on('click', function(){
+				$('.lukeImg').insertAfter('.defender');
+				$('.luke').css({'background-color': "#e3eaed"});
+			}));
 			$('.vaderImg').appendTo('.enemies');
+			$('.vader').css({'background-color': "red"});
+			$('.vaderImg').addClass($('#vader').on('click', function(){
+				$('.vaderImg').insertAfter('.defender');
+				$('.vader').css({'background-color': "#e3eaed"});
+			}));
 			$('.sidiousImg').appendTo('.enemies');
-		};
-	})	
+			$('.sidious').css({'background-color': "red"});
+			$('.sidiousImg').addClass($('#sidious').on('click', function(){
+				$('.sidiousImg').insertAfter('.defender');
+				$('.sidious').css({'background-color': "#e3eaed"});
+			}));
+		});
+	};
+	
 
-	$('#vader').on('click', function(){
-		vaderImg = true
-		if (vaderImg === true){
-			$('.lukeImg').appendTo('.enemies');
-			$('.obiImg').appendTo('.enemies');
-			$('.sidiousImg').appendTo('.enemies');
-		};
-	})
+	// $('#vader').on('click', function(){
+	// 	vaderImg = true
+	// 	if (vaderImg === true){
+	// 		$('.lukeImg').appendTo('.enemies');
+	// 		$('.luke').css({'background-color': "red"});
+	// 		$('#luke').on('click', function(){
+	// 			vaderImg === false;
+	// 			if (lukeImg === true){
+	// 				$('.vaderImg').insertAfter('.character');
+	// 				$('.lukeImg').insertAfter('.defender');
+	// 				$('.luke').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 		$('.obiImg').appendTo('.enemies');
+	// 		$('.obi').css({'background-color': "red"});
+	// 		$('#obi').on('click', function(){
+	// 			vaderImg === false;
+	// 			if (obiImg === true){
+	// 				$('.vaderImg').insertAfter('.character');
+	// 				$('.obiImg').insertAfter('.defender');
+	// 				$('.obi').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 		$('.sidiousImg').appendTo('.enemies');
+	// 		$('.sidious').css({'background-color': "red"});
+	// 		$('#sidious').on('click', function(){
+	// 			vaderImg === false;
+	// 			if (sidiousImg === true){
+	// 				$('.vaderImg').insertAfter('.character');
+	// 				$('.sidiousImg').insertAfter('.defender');
+	// 				$('.sidious').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 	};
+	// })
 
-	$('#sidious').on('click', function(){
-		sidiousImg = true
-		if (sidiousImg === true){
-			$('.lukeImg').appendTo('.enemies');
-			$('.obiImg').appendTo('.enemies');
-			$('.vaderImg').appendTo('.enemies');
-		};
-	})	
+	// $('#sidious').on('click', function(){
+	// 	sidiousImg = true
+	// 	if (sidiousImg === true){
+	// 		$('.lukeImg').appendTo('.enemies');
+	// 		$('.luke').css({'background-color': "red"});
+	// 		$('#luke').on('click', function(){
+	// 			sidiousImg === false;
+	// 			if (lukeImg === true){
+	// 				$('.sidiousImg').insertAfter('.character');
+	// 				$('.lukeImg').insertAfter('.defender');
+	// 				$('.luke').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 		$('.obiImg').appendTo('.enemies');
+	// 		$('.obi').css({'background-color': "red"});
+	// 		$('#obi').on('click', function(){
+	// 			sidiousImg === false;
+	// 			if (obiImg === true){
+	// 				$('.sidiousImg').insertAfter('.character');
+	// 				$('.obiImg').insertAfter('.defender');
+	// 				$('.obi').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 		$('.vaderImg').appendTo('.enemies');
+	// 		$('.vader').css({'background-color': "red"});
+	// 		$('#vader').on('click', function(){
+	// 			sidiousImg === false;
+	// 			if (vaderImg === true){
+	// 				$('.sidiousImg').insertAfter('.character');
+	// 				$('.vaderImg').insertAfter('.defender');
+	// 				$('.vader').css({'background-color': "#e3eaed"});
+	// 			}
+	// 		});
+	// 	};
+	// })	
 
 });
 
