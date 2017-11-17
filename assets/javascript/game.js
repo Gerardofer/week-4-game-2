@@ -12,21 +12,23 @@
 
 $(document).ready(function(){
 
-	var challenegers = ["luke", "obi", "vader", "sidious"];
+	var userChar = [];
+	var challenegers = [];
 	var lukeHp = 100;
 	var obiHp = 125;
 	var vaderHp = 160;
 	var sidiousHp = 185;
-	var userChar = true;
-	var enemy = false;
-	var Luke = false;
-	var obi = false;
-	var vader = false;
-	var sidious = false;
-	var lukeImg = $('.lukeImg')
-	var obiImg = $('.obiImg')
-	var vaderImg = $('.vaderImg')
-	var sidiousImg = $('.sidiousImg')
+	var LukeAttack = 5;
+	var obiAttack = 10;
+	var vaderAttack = 20;
+	var sidiousAttack = 25;
+	var yourChar = false;
+	var yourDef = false;
+	var lukeImg = $('.lukeImg');
+	var obiImg = $('.obiImg');
+	var vaderImg = $('.vaderImg');
+	var sidiousImg = $('.sidiousImg');
+	var attackBtn = $('.attack');
 
 
 	$('#luke-hp').text(lukeHp);
@@ -38,159 +40,177 @@ $(document).ready(function(){
 //=============================== LUKE AS CHARACTER ==========================================
 	lukeImg.on('click', function(){
 		$(this).appendTo('.character');
-//=============================== OBI GOES TO ENEMIES SECTION ================================
-		obiImg.appendTo('.enemies');
-		obiImg.addClass('.fighter1')
-		$('.button1').on('click', function(){
-			$('.fighter1').appendTo('.defender');
-			$('.obi').css({"background-color": "#e3eaed"});
-			$('#obi-hp').css({"color": "black"});
-		});
-		$('.obi').css({"background-color": "red"});
-		$('#obi-hp').css({"color": "white"});
-
-//=============================== VADER GOES TO ENEMIES SECTION ================================
-		vaderImg.appendTo('.enemies');
-		vaderImg.addClass('.fighter2')
-		$('.button2').on('click', function(){
-			$('.fighter2').appendTo('.defender');
-			$('.vader').css({"background-color": "#e3eaed"});
-			$('#vader-hp').css({"color": "black"});
-		});
-		$('.vader').css({"background-color": "red"});
-		$('#vader-hp').css({"color": "white"});	
-
-//=============================== SIDIOUS GOES TO ENEMIES SECTION ================================
-		sidiousImg.appendTo('.enemies');
-		sidiousImg.addClass('.fighter3')
-		$('.button3').on('click', function(){
-			$('.fighter3').appendTo('.defender');
-			$('.sidious').css({"background-color": "#e3eaed"});
-			$('#sidious-hp').css({"color": "black"});
-		});
-		$('.sidious').css({"background-color": "red"});
-		$('#sidious-hp').css({"color": "white"});
+		userChar.push(lukeHp);
+		if (userChar.length > 1){
+			alert("You've already selected a character");
+			return;
+		}
+		console.log(userChar);
+		obiCharB();
+		vaderCharA();	
+		sidioudChar();
 	});		
-
 
 //=============================== OBI AS CHARACTER ==========================================
 	obiImg.on('click', function(){
 		$(this).appendTo('.character');
-
-//=============================== LUKE GOES TO ENEMIES SECTION ================================
-		lukeImg.appendTo('.enemies');
-		lukeImg.addClass('.fighter0');
-		$('.button1').on('click', function(){
-			$('.fighter0').appendTo('.defender');
-			$('.luke').css({"background-color": "#e3eaed"});
-			$('#luke-hp').css({"color": "black"});
-		});
-		$('.luke').css({"background-color": "red"});
-		$('#luke-hp').css({"color": "white"});	
-
-//=============================== VADER GOES TO ENEMIES SECTION ================================
-		vaderImg.appendTo('.enemies');
-		vaderImg.addClass('.fighter2')
-		$('.button2').on('click', function(){
-			$('.fighter2').appendTo('.defender');
-			$('.vader').css({"background-color": "#e3eaed"});
-			$('#vader-hp').css({"color": "black"});
-		});
-		$('.vader').css({"background-color": "red"});
-		$('#vader-hp').css({"color": "white"});	
-
-//=============================== SIDIOUS GOES TO ENEMIES SECTION ================================
-		sidiousImg.appendTo('.enemies');
-		sidiousImg.addClass('.fighter3')
-		$('.button3').on('click', function(){
-			$('.fighter3').appendTo('.defender');
-			$('.sidious').css({"background-color": "#e3eaed"});
-			$('#sidious-hp').css({"color": "black"});
-		});
-		$('.sidious').css({"background-color": "red"});
-		$('#sidious-hp').css({"color": "white"});
+		userChar.push(obiHp);
+		if (userChar.length > 1){
+			alert("You've already selected a character");
+			return;
+		}
+		console.log(userChar);
+		lukeChar();
+		vaderCharA();
+		sidioudChar();
 	});	
-
 
 //=============================== VADER AS CHARACTER ==========================================
 	vaderImg.on('click', function(){
 		$(this).appendTo('.character');
-
-//=============================== LUKE GOES TO ENEMIES SECTION ================================
-		lukeImg.appendTo('.enemies');
-		lukeImg.addClass('.fighter0');
-		$('.button1').on('click', function(){
-			$('.fighter0').appendTo('.defender');
-			$('.luke').css({"background-color": "#e3eaed"});
-			$('#luke-hp').css({"color": "black"});
-		});
-		$('.luke').css({"background-color": "red"});
-		$('#luke-hp').css({"color": "white"});	
-
-//=============================== OBI GOES TO ENEMIES SECTION ================================
-		obiImg.appendTo('.enemies');
-		obiImg.addClass('.fighter1')
-		$('.button2').on('click', function(){
-			$('.fighter1').appendTo('.defender');
-			$('.obi').css({"background-color": "#e3eaed"});
-			$('#obi-hp').css({"color": "black"});
-		});
-		$('.obi').css({"background-color": "red"});
-		$('#obi-hp').css({"color": "white"});		
-
-//=============================== SIDIOUS GOES TO ENEMIES SECTION ================================
-		sidiousImg.appendTo('.enemies');
-		sidiousImg.addClass('.fighter3')
-		$('.button3').on('click', function(){
-			$('.fighter3').appendTo('.defender');
-			$('.sidious').css({"background-color": "#e3eaed"});
-			$('#sidious-hp').css({"color": "black"});
-		});
-		$('.sidious').css({"background-color": "red"});
-		$('#sidious-hp').css({"color": "white"});
+		userChar.push(vaderHp);
+		if (userChar.length > 1){
+			alert("You've already selected a character");
+			return;
+		}
+		console.log(userChar);
+		lukeChar();
+		obiCharA();	
+		sidioudChar();
 	});	
 
 //=============================== SIDIOUS AS CHARACTER ==========================================
 	sidiousImg.on('click', function(){
 		$(this).appendTo('.character');
-
-//=============================== LUKE GOES TO ENEMIES SECTION ================================		
-		lukeImg.appendTo('.enemies');
-		lukeImg.addClass('.fighter0');
-		$('.button1').on('click', function(){
-			$('.fighter0').appendTo('.defender');
-			$('.luke').css({"background-color": "#e3eaed"});
-			$('#luke-hp').css({"color": "black"});
-		});
-		$('.luke').css({"background-color": "red"});
-		$('#luke-hp').css({"color": "white"});
-
-//=============================== OBI GOES TO ENEMIES SECTION ================================
-		obiImg.appendTo('.enemies');
-		obiImg.addClass('.fighter1')
-		$('.button2').on('click', function(){
-			$('.fighter1').appendTo('.defender');
-			$('.obi').css({"background-color": "#e3eaed"});
-			$('#obi-hp').css({"color": "black"});
-		});
-		$('.obi').css({"background-color": "red"});
-		$('#obi-hp').css({"color": "white"});	
-
-//=============================== VADER GOES TO ENEMIES SECTION ================================
-		vaderImg.appendTo('.enemies');
-		vaderImg.addClass('.fighter2')
-		$('.button3').on('click', function(){
-			$('.fighter2').appendTo('.defender');
-			$('.vader').css({"background-color": "#e3eaed"});
-			$('#vader-hp').css({"color": "black"});
-		});
-		$('.vader').css({"background-color": "red"});
-		$('#vader-hp').css({"color": "white"});		
+		userChar.push(sidiousHp);
+		if (userChar.length > 1){
+			alert("You've already selected a character");
+			return;
+		}
+		console.log(userChar);
+		lukeChar();
+		obiCharA();
+		vaderCharB();		
 	});	
 
 
-function selectDefender(){
+	attackBtn.on('click', function(){
+		if (userChar < 1 || challenegers < 1){
+		alert("Please select a character to fight");
+		}
+	})
 
+
+
+
+
+
+
+
+
+//=============================== FUNCTIONS ====================================================
+
+function lukeChar(){
+	lukeImg.appendTo('.enemies');
+	lukeImg.addClass('.fighter0');
+	$('.button1').on('click', function(){
+		challenegers.push(lukeHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter0').appendTo('.defender');
+		$('.luke').css({"background-color": "#e3eaed"});
+		$('#luke-hp').css({"color": "black"});
+	});
+	$('.luke').css({"background-color": "red"});
+	$('#luke-hp').css({"color": "white"});
+}
+
+function vaderCharA(){
+	vaderImg.appendTo('.enemies');
+	vaderImg.addClass('.fighter2')
+	$('.button2').on('click', function(){
+		challenegers.push(vaderHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter2').appendTo('.defender');
+		$('.vader').css({"background-color": "#e3eaed"});
+		$('#vader-hp').css({"color": "black"});
+	});
+	$('.vader').css({"background-color": "red"});
+	$('#vader-hp').css({"color": "white"});	
+}
+
+function vaderCharB(){
+	vaderImg.appendTo('.enemies');
+	vaderImg.addClass('.fighter2')
+	$('.button3').on('click', function(){
+		challenegers.push(vaderHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter2').appendTo('.defender');
+		$('.vader').css({"background-color": "#e3eaed"});
+		$('#vader-hp').css({"color": "black"});
+	});
+	$('.vader').css({"background-color": "red"});
+	$('#vader-hp').css({"color": "white"});	
+}
+
+function obiCharA(){
+	obiImg.appendTo('.enemies');
+	obiImg.addClass('.fighter1')
+	$('.button2').on('click', function(){
+		challenegers.push(obiHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter1').appendTo('.defender');
+		$('.obi').css({"background-color": "#e3eaed"});
+		$('#obi-hp').css({"color": "black"});
+	});
+	$('.obi').css({"background-color": "red"});
+	$('#obi-hp').css({"color": "white"});
+}
+
+function obiCharB(){
+	obiImg.appendTo('.enemies');
+	obiImg.addClass('.fighter1')
+	$('.button1').on('click', function(){
+		challenegers.push(obiHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter1').appendTo('.defender');
+		alert ("Click on the 'attack' button to start the duel!")
+		$('.obi').css({"background-color": "#e3eaed"});
+		$('#obi-hp').css({"color": "black"});
+	});
+	$('.obi').css({"background-color": "red"});
+	$('#obi-hp').css({"color": "white"});
+}
+
+function sidioudChar(){
+	sidiousImg.appendTo('.enemies');
+	sidiousImg.addClass('.fighter3')
+	$('.button3').on('click', function(){
+		challenegers.push(sidiousHp);
+		if (challenegers.length > 1){
+			alert("You've already selected a character");
+			return;
+		};
+		$('.fighter3').appendTo('.defender');
+		$('.sidious').css({"background-color": "#e3eaed"});
+		$('#sidious-hp').css({"color": "black"});
+	});
+	$('.sidious').css({"background-color": "red"});
+	$('#sidious-hp').css({"color": "white"});
 }
 
 
