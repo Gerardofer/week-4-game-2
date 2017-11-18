@@ -1,27 +1,22 @@
-//                      Game rules
-//===========================================================
+// ===================Things to finish ============================
 
-// 1.- there's a character that's chosen
-// 2.- the other three charactes will then pass to be opponents, that's demonstrated by changing the plane of the charactes, chosen character top, three opponent middle, defender bottom.
-// 3.- the hp for every character will reduced with every attack.  If user's hp is reduced to 0 or below, it is game over.  If the hp from the defender is reduced to 0 or below, that defender is errased from the screen and another defender needs to be selected. this is the process untill all the defenders are defeted.
-// 4.- the user's character will inflict damage that accumulates with every attack.  Defenders's damage does not accumulate. the logic is, user attack inclicts 8 damage, defender attach inflicts 25, next attack the user's attack increases by 8, inflicting 16 damage, while the defender still inflicts the same damage of 25, etc.
-// 5.- there is a restart buttom.
-// 6.-  defender needs to be selected, or else a message pops alerting no character has been selected.
-
-//possible functions to use are .toggleClass(), .insertAfter()
+// - complete the logic that will reduce the Hp for all the players selected
+// - fix the bug that moves a player in the enemies section to the character section if the picture is selected.
+// - add sounds effects. 
 
 $(document).ready(function(){
 
 	var userChar = [];
 	var challenegers = [];
 	var lukeHp = 100;
-	var obiHp = 125;
-	var vaderHp = 160;
-	var sidiousHp = 185;
-	var LukeAttack = 5;
+	var obiHp = 120;
+	var vaderHp = 150;
+	var sidiousHp = 180;
+	var lukeAttack = 5;
 	var obiAttack = 10;
 	var vaderAttack = 20;
 	var sidiousAttack = 25;
+	var totalAttack = 0;
 	var yourChar = false;
 	var yourDef = false;
 	var lukeImg = $('.lukeImg');
@@ -94,21 +89,100 @@ $(document).ready(function(){
 	});	
 
 
+//======================================== LUKE'S SCENARIO =====================================
 	attackBtn.on('click', function(){
 		if (userChar < 1 || challenegers < 1){
 		alert("Please select a character to fight");
 		}
-	})
+		if (userChar[0] === 100 && challenegers[0] === 120){
+			totalAttack += lukeAttack;
+			lukeHp = lukeHp - obiAttack;
+			obiHp = obiHp - totalAttack;
+			if (obiHp <= 0){
+				challenegers = [];
+				obiImg.detach();
+				$('.button1').detach()
+			};
+			console.log(totalAttack);
+			$('#luke-hp').text(lukeHp);
+			$('#obi-hp').text(obiHp);
+		}
+	});
+
+	attackBtn.on('click', function(){
+		if (userChar < 1 || challenegers < 1){
+		alert("Please select a character to fight");
+		}
+
+		if (userChar[0] === 30 && challenegers[0] === 150){
+			totalAttack += lukeAttack;
+			lukeHp = lukeHp - vaderAttack
+			vaderHp = vaderHp - totalAttack;
+			console.log(totalAttack);
+			if (vaderHp <= 0){
+				challenegers = [];
+				vaderImg.detach();
+				$('.button2').detach()
+			}
+			if (lukeHp <= 0){
+				userChar = [];
+				totalAttack = 0;
+				alert("Game Over");
+				alert("Please click 'reset' to start a new game");
+				lukeImg.detach();
+				vaderImg.detach();
+				sidiousImg.detach();
+			}
+			$('#luke-hp').text(lukeHp);
+			$('#vader-hp').text(vaderHp);
+		}	
+	});
+
+
+//===================================== OBI'S SCENARIO ==================================		
+	attackBtn.on('click', function(){
+		if (userChar < 1 || challenegers < 1){
+		alert("Please select a character to fight");
+		}
+
+		if (userChar[0] === 120 && challenegers[0] === 100){
+			totalAttack += obiAttack;
+			obiHp = obiHp - lukeAttack;
+			lukeHp = lukeHp - totalAttack;
+			if(lukeHp <= 0){
+				challenegers = [];
+				lukeImg.detach();
+				$('.button1').detach();
+			}
+			console.log(totalAttack);
+			$('#obi-hp').text(obiHp);
+			$('#luke-hp').text(lukeHp);
+		};
+	});
 
 
 
-
-
-
-
-
+	attackBtn.on('click', function(){
+		if (userChar < 1 || challenegers < 1){
+		alert("Please select a character to fight");
+		}
+		if (challenegers[0] === 150){
+			obiHp = obiHp - vaderAttack;
+			vaderHp = vaderHp - totalAttack;
+			if (vaderHp <= 0){
+				challenegers = [];
+				vaderImg.detach();
+				$('.button2').detach();
+			}
+			console.log(totalAttack);
+			$('#obi-hp').text(obiHp);
+			$('#vader-hp').text(lukeHp);
+		}
+	});
+	
 
 //=============================== FUNCTIONS ====================================================
+
 
 function lukeChar(){
 	lukeImg.appendTo('.enemies');
@@ -126,7 +200,7 @@ function lukeChar(){
 	$('.luke').css({"background-color": "red"});
 	$('#luke-hp').css({"color": "white"});
 }
-
+	
 function vaderCharA(){
 	vaderImg.appendTo('.enemies');
 	vaderImg.addClass('.fighter2')
